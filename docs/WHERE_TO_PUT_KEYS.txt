@@ -1,0 +1,25 @@
+Do NOT paste API keys into Telegram chat.
+
+Fast + safe options:
+
+Option 1 (best for production): Put keys into Vercel Environment Variables
+- Vercel Project -> Settings -> Environment Variables
+- Add keys for Production + Preview
+- This keeps secrets out of git and out of chat.
+
+Option 2 (local machine, also safe): Put keys in a local secrets folder
+- Put secrets in: ~/.hermes/secrets/
+- Example files:
+  - ~/.hermes/secrets/alchemy_key.txt
+  - ~/.hermes/secrets/moralis_key.txt
+  - ~/.hermes/secrets/quicknode_key.txt
+  - ~/.hermes/secrets/helius_key.txt
+- Lock them:
+  chmod 600 ~/.hermes/secrets/*.txt
+
+Never commit keys
+- .env files should stay local.
+- Never put keys in GitHub.
+
+If you want me to use keys locally (without you pasting them):
+- Create the files above and tell me "keys ready".
