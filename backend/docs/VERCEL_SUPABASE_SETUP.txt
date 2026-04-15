@@ -1,0 +1,32 @@
+OnGuard backend (Vercel + Supabase) setup
+
+Repo
+- https://github.com/azulabota/onguard
+- Backend folder: backend/
+
+Supabase
+1) Use an existing Supabase project or create a new one
+2) Run the backend schema:
+   backend/docs/SUPABASE_SCHEMA.sql
+This creates:
+- public.solana_webhook_events
+
+Vercel (backend)
+1) Create a NEW Vercel project pointing at the repo, with Root Directory = backend
+2) Environment Variables (Production + Preview)
+- SUPABASE_URL
+- SUPABASE_SERVICE_ROLE_KEY
+- HELIUS_WEBHOOK_SECRET
+Optional later:
+- HELIUS_API_KEY
+
+3) Deploy
+4) Verify:
+- GET https://<backend-domain>/api/health
+
+Helius webhook
+When creating the Helius webhook, set the URL to:
+https://<backend-domain>/api/helius-webhook?secret=<HELIUS_WEBHOOK_SECRET>
+
+Notes
+- We store raw payloads first. Next step is a processor job that turns events into high-signal push alerts.
