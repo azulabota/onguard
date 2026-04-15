@@ -1,0 +1,45 @@
+OnGuard near real-time (MVP) plan
+
+Goal
+- Near real-time alerts for high-signal Solana events (Phase 1), using free tiers as long as possible.
+
+Key constraints on free tiers
+- Burst rate limits (requests/sec) break first.
+- Missing enhanced streaming features may cause delays/gaps.
+
+Design to stretch free tiers
+1) Webhook-first, hydrate-second
+- Use Helius webhooks to learn that "something happened".
+- Only fetch full transaction details when it matches alert rules.
+
+2) Hard caps
+- Cap wallets per user.
+- Cap total monitored wallets in beta.
+
+3) Backpressure
+- Queue tx hydration.
+- Process at a fixed rate to stay under provider limits.
+
+4) High-signal alerts only
+- Large outgoing SOL transfer
+- New token approvals / suspicious program interactions (later)
+
+Backend pieces (this folder)
+- backend/api/helius-webhook.ts
+  Receives Helius webhooks, stores raw events in Supabase.
+
+- backend/api/health.ts
+  Health check.
+
+Supabase
+- Apply backend/docs/SUPABASE_SCHEMA.sql
+
+Vercel env vars needed (backend project)
+- SUPABASE_URL
+- SUPABASE_SERVICE_ROLE_KEY
+- HELIUS_WEBHOOK_SECRET
+
+Next steps
+- Add event processing endpoint (cron) to fan-out push notifications.
+- Add tables for wallets + push tokens.
+- Add Solana tx hydration and heuristics.
