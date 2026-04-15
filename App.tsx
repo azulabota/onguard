@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeAreaView, StatusBar, Text, useColorScheme, View } from 'react-native';
 import * as Font from 'expo-font';
@@ -59,11 +59,14 @@ export default function App() {
 
   if (!fontsLoaded) return null;
 
+  const baseNavTheme = theme.mode === 'dark' ? DarkTheme : DefaultTheme;
+
   return (
     <NavigationContainer
       theme={{
-        dark: theme.mode === 'dark',
+        ...baseNavTheme,
         colors: {
+          ...baseNavTheme.colors,
           primary: theme.primary,
           background: theme.background,
           card: theme.card,
