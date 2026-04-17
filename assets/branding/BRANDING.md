@@ -17,7 +17,7 @@ OnGuard assets
   - on-mark-purple.svg
 
 Palette (from SVGs)
-- OnStx blue: #3282FC
+- OnStx gradient blue: #62A3FF
 - OnTime yellow: #F1AB29
 - OnGuard purple: #615280
 
