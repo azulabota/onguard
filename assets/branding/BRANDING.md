@@ -1,13 +1,25 @@
-OnGuard branding (WIP)
+OnGuard branding (current)
 
-Current direction
-- UI: black + sky-blue accent
-- Wordmark: "Guard" + power icon
+Umbrella brand: OnStx ("On Stack")
 
-Logo mock reference
-- assets/branding/logo-mocks.jpg
+OnStx assets
+- assets/branding/onstx/
+  - onstx-blue.svg (primary)
+  - onstx-black.svg
+  - onstx-white.svg
+  - on-mark-black.svg
+  - on-mark-white.svg
 
-Recommendation
-- Use the "white background + blue wordmark" variant as base.
-- Create dark-mode version: black background, sky-blue wordmark.
-- App icon: power symbol alone in rounded square.
+OnGuard assets
+- assets/branding/onguard/
+  - onguard-black.svg
+  - onguard-white.svg
+  - on-mark-purple.svg
+
+Palette (from SVGs)
+- OnStx blue: #3282FC
+- OnTime yellow: #F1AB29
+- OnGuard purple: #615280
+
+Next
+- Export proper PNG app icons (1024x1024) + splash assets once you confirm the desired background color and whether the icon should be the ON mark or the full wordmark.
